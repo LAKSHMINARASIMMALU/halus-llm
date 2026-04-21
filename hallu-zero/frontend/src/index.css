@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #0a0a0f;
+    color: #d8d8ee;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #0f0f18; }
+  ::-webkit-scrollbar-thumb { background: #2a2a3e; border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: #3a3a52; }
+}
+
+@layer components {
+  .glass {
+    background: rgba(22, 22, 34, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(216, 216, 238, 0.06);
+  }
+
+  .glass-hover {
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .glass-hover:hover {
+    background: rgba(30, 30, 46, 0.8);
+    border-color: rgba(216, 216, 238, 0.12);
+  }
+
+  .signal-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .confidence-bar {
+    height: 2px;
+    background: #1e1e2e;
+    border-radius: 1px;
+    overflow: hidden;
+  }
+
+  .confidence-fill {
+    height: 100%;
+    border-radius: 1px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(216,216,238,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(216,216,238,0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .scanline {
+    background: linear-gradient(
+      to bottom,
+      transparent 50%,
+      rgba(0, 255, 136, 0.015) 50%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+  }
+}
+
+/* Markdown prose */
+.prose-dark h1, .prose-dark h2, .prose-dark h3 {
+  font-family: 'DM Serif Display', serif;
+  color: #f0f0f8;
+  margin: 1em 0 0.5em;
+}
+.prose-dark p { margin: 0.6em 0; }
+.prose-dark code {
+  background: #1e1e2e;
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  color: #00ff88;
+}
+.prose-dark pre {
+  background: #0f0f18;
+  border: 1px solid #2a2a3e;
+  border-radius: 6px;
+  padding: 1em;
+  overflow-x: auto;
+  margin: 0.8em 0;
+}
+.prose-dark ul, .prose-dark ol { padding-left: 1.4em; margin: 0.6em 0; }
+.prose-dark li { margin: 0.2em 0; }
+.prose-dark strong { color: #f0f0f8; font-weight: 600; }
+.prose-dark blockquote {
+  border-left: 2px solid #00ff88;
+  padding-left: 0.8em;
+  color: #8a8aaa;
+  margin: 0.6em 0;
+}
